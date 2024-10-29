@@ -1,0 +1,20 @@
+{
+  "folder-color.pathColors": [
+    {
+      "folderPath": "blogapp\\",
+      "color": "foldercolorizer.LightRed"
+    },
+    {
+      "folderPath": "blogapp\\blog\\"
+    },
+    {
+      "folderPath": "blogapp\\.vscode\\"
+    },
+    {
+      "folderPath": "blogapp\\static\\"
+    },
+    {
+      "folderPath": "blogapp\\templates\\"
+    }
+  ]
+}

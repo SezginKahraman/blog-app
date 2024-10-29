@@ -1,0 +1,37 @@
+{
+  "folder-color.pathColors": [
+    {
+      "folderPath": "my-site\\blogapp\\blogapp\\",
+      "color": "foldercolorizer.LightRed"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\blog\\templates\\",
+      "color": "foldercolorizer.Coral"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\",
+      "color": "foldercolorizer.LightRed"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\blog\\"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\manage.py\\"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\db.sqlite3\\"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\templates\\",
+      "color": "foldercolorizer.LightYellow"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\static\\",
+      "color": "foldercolorizer.Coral"
+    },
+    {
+      "folderPath": "my-site\\blogapp\\.vscode\\"
+    }
+  ],
+  "docwriter.style": "Auto-detect"
+}
