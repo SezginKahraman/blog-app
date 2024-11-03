@@ -1,11 +1,5 @@
 <div class="list-group">
-  <a
-    href="#"
-    class="list-group-item list-group-item-action active"
-    aria-current="true"
-  >
-    Programlama
-  </a>
-  <a href="#" class="list-group-item list-group-item-action">Web Programlama</a>
-  <a href="#" class="list-group-item list-group-item-action">Mobil Uygulama</a>
+  {% for category in categories %}
+    <a href="{% url 'blogs_by_category' category.slug %}" class="list-group-item list-group-item-action {{ category.is_active }}" aria-current="true">{{ category.name|title }}</a>
+  {% endfor %}
 </div>
