@@ -71,8 +71,9 @@ def blogs(request):
 
 def blogs_by_category(request, slug):
     context = {
-        "blogs": Blog.objects.filter(slug=slug),
+        "blogs": Blog.objects.filter(category__slug=slug),
         "categories": Category.objects.all(),
+        "selected_category": slug,
     }
     return render(request, "blog/blogs.html", context)
 

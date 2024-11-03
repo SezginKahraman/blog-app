@@ -16,6 +16,11 @@ class BlogAdmin(admin.ModelAdmin):
         "description",
     ]  # admin panelinde, arama yapılacak fieldları belirler.
     readonly_fields = ["slug"]  # admin panelinde, fieldların readonly olmasını sağlar.
+    list_filter = [
+        "category",
+        "is_active",
+        "is_homepage",
+    ]  # admin panelinde, filtreleme yapılacak fieldları belirler.
 
 
 admin.site.register(

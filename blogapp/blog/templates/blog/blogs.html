@@ -7,11 +7,15 @@
       <div class="col-9">
         <h1>All Blogs</h1>
         <hr />
-        {% for blog in blogs %}
-          {% if blog.is_active %}
-            {% include 'blog/partials/_blog.html' %}
-          {% endif %}
-        {% endfor %}
+        {% if blogs|length > 0 %}
+          {% for blog in blogs %}
+            {% if blog.is_active %}
+              {% include 'blog/partials/_blog.html' %}
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <div class="alert alert-info" role="alert">No blogs found.</div>
+        {% endif %}
       </div>
     </div>
   </div>
