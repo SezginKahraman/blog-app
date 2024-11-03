@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.http.response import HttpResponse
+from blog.models import Blog
 
 # Create your views here.
 # def index(request):
 #     return render(request, "blog/index.html")
 
-data = {
+dataJson = {
     "blogs": [
         {
             "id": 1,
@@ -52,18 +53,29 @@ data = {
 
 
 def index(request):
-    context = {"blogs": data["blogs"]}
+    # all = Blog.objects.all()  # select * from blog
+    context = {"blogs": Blog.objects.filter(is_homepage=True, is_active=True)}
     return render(request, "blog/index.html", context)
 
 
 def blogs(request):
-    context = {"blogs": data["blogs"]}
+    context = {"blogs": Blog.objects.filter(is_active=True)}
     return render(request, "blog/blogs.html", context)
 
 
 def blog_details(request, id):
-    selectedBlog = [blog for blog in data["blogs"] if blog["id"] == id][0]
-    return render(request, "blog/blog-details.html", {"blog": selectedBlog})
+    data = Blog.objects.all()
+
+    # db'den gelen nesne json objesi değil python objesidir. Bu yüzden o nesnenin property'si üzerinden değere erişmek gerekir. !
+    selectedBlogFromDb = [blog for blog in data if blog.id == id][0]
+
+    # Json objesi üzerinden işlem yapmak için index scripti kullanmak gerekir. blog["id"] gibi
+    selectedBlogFromJson = [
+        blogJson for blogJson in dataJson["blogs"] if blogJson["id"] == id
+    ]
+
+    blog = Blog.objects.get(id=id)
+    return render(request, "blog/blog-details.html", {"blog": blog})
 
     # for blog in data["blogs"]:
     #     if blog["id"] == id:

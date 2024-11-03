@@ -9,5 +9,3 @@ urlpatterns = [
     path("blogs", views.blogs, name="blogs"),
     path("blogs/<int:id>", views.blog_details, name="blog_details"),
 ]
-
-print("hello")
