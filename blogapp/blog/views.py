@@ -63,7 +63,7 @@ def blogs(request):
     return render(request, "blog/blogs.html", context)
 
 
-def blog_details(request, id):
+def blog_details_with_id(request, id):
     data = Blog.objects.all()
 
     # db'den gelen nesne json objesi değil python objesidir. Bu yüzden o nesnenin property'si üzerinden değere erişmek gerekir. !
@@ -81,3 +81,8 @@ def blog_details(request, id):
     #     if blog["id"] == id:
     #         return render(request, "blog/blog-details.html", {"blog": blog})
     # return HttpResponse("Blog bulunamadı")
+
+
+def blog_details(request, slug):
+    blog = Blog.objects.get(slug=slug)
+    return render(request, "blog/blog-details.html", {"blog": blog})
