@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from ckeditor.fields import RichTextField
 
 
 class Blog(models.Model):
@@ -9,7 +10,7 @@ class Blog(models.Model):
     )  # fileField, can allow to upload different types of files than image
     is_active = models.BooleanField(default=True)
     is_homepage = models.BooleanField(default=False)
-    description = models.TextField()
+    description = RichTextField()
     slug = models.SlugField(
         null=False, blank=True, unique=True, db_index=True, editable=False
     )  # blank = True means that in the admin panel can be empty
