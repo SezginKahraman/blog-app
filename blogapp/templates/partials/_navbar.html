@@ -12,17 +12,17 @@
     <ul class="navbar-nav ms-auto">
       {% if user.is_authenticated %}
         <li class="nav-item">
-          <a href="{% url 'home' %}" class="nav-link">Welcome</a>
+          <a href="#}" class="nav-link">Welcome, {{ user.get_full_name|title }}</a>
         </li>
         <li class="nav-item">
-          <a href="{% url 'blogs' %}" class="nav-link">Logout</a>
+          <a href="{% url 'logout' %}" class="nav-link">Logout</a>
         </li>
       {% else %}
         <li class="nav-item">
-          <a href="{% url 'home' %}" class="nav-link">Login</a>
+          <a href="{% url 'login' %}" class="nav-link">Login</a>
         </li>
         <li class="nav-item">
-          <a href="{% url 'blogs' %}" class="nav-link">Register</a>
+          <a href="{% url 'register' %}" class="nav-link">Register</a>
         </li>
       {% endif %}
     </ul>

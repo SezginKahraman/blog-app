@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     "ckeditor",
+    "account",
     "blog",
     "django.contrib.admin",
     "django.contrib.auth",
