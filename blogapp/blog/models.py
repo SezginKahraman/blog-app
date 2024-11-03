@@ -4,7 +4,9 @@ from django.utils.text import slugify
 
 class Blog(models.Model):
     title = models.CharField(max_length=200)
-    image = models.CharField(max_length=50)
+    image = models.ImageField(
+        upload_to="blogs"
+    )  # fileField, can allow to upload different types of files than image
     is_active = models.BooleanField(default=True)
     is_homepage = models.BooleanField(default=False)
     description = models.TextField()
