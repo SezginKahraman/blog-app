@@ -29,9 +29,15 @@ class Blog(models.Model):
         null=False, blank=True, unique=True, db_index=True, editable=False
     )  # blank = True means that in the admin panel can be empty
 
-    category = models.ForeignKey(
-        Category, on_delete=models.CASCADE, default=1, related_name="blogs"
-    )
+    # category = models.ForeignKey(
+    #     Category, on_delete=models.CASCADE, default=1, related_name="blogs"
+    # )  one-to-many
+
+    categories = models.ManyToManyField(
+        Category, related_name="blogs", blank=True
+    )  # related name means when we call the category object, we can access the blogs of that category by using this name, example,
+    # Category.objects.get(slug=slug).blogs.filter(is_active=True)
+    # Category.objects.get(slug=slug).related_name="xx will given".filter(is_active=True)
 
     def __str__(self):  # admin panelinde gösterilen ismi de belirler
         return self.title

@@ -69,7 +69,19 @@ def blogs(request):
     return render(request, "blog/blogs.html", context)
 
 
+# many-to-many
 def blogs_by_category(request, slug):
+
+    context = {
+        "blogs": Category.objects.get(slug=slug).blogs.filter(is_active=True),
+        "categories": Category.objects.all(),
+        "selected_category": slug,
+    }
+    return render(request, "blog/blogs.html", context)
+
+
+# one -to - many
+def blogs_by_category_one_to_many(request, slug):
     context = {
         "blogs": Blog.objects.filter(category__slug=slug),
         "categories": Category.objects.all(),
